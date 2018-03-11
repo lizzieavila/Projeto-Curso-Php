@@ -1,10 +1,10 @@
-<h2><?php echo getInfo("titulo") ?></h2>
-<p><?php echo getInfo("descricao") ?></p>
-<hr>
+
+<main class="container">
+
 <h2>Pesquisar</h2>
 <form action="/busca" method="GET"  >
 	<input type="text" name="busca" placeholder="Busca">
-	<button>Pesquisar</button>
+	<button class="btn blue">Pesquisar</button>
 </form>
 
 <hr>
@@ -42,8 +42,9 @@
 	value="<?php echo (isset($produtoEdit['descricao'])? $produtoEdit['descricao'] : '' );?>">
 	<input type="text" name="valor" placeholder="Valor R$" 
 	value="<?php echo (isset($produtoEdit['valor'])? $produtoEdit['valor'] : '' );?>">
-	<button><?php echo (isset($editando) ? 'Atualizar' : 'Adicionar');?></button>
+	<button class="btn blue"><?php echo (isset($editando) ? 'Atualizar' : 'Adicionar');?></button>
 	<?php if(isset($editando)):?>
 		<a href="/home">Cancelar</a>
 	<?php endif;?>
 </form>
+</main>
