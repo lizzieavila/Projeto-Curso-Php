@@ -15,6 +15,7 @@
 		<li>
 			<?php echo  $produto['titulo']." - ".$produto['descricao']." - "."R$".number_format($produto['valor'],2,",",".") ?>
 			<a href="/editar?id=<?php echo $produto['id'] ?>">Editar</a>
+			<a href="/deletar?id=<?php echo $produto['id'] ?>">Deletar</a>
 		</li>
 
 	<?php endforeach; ?>
@@ -42,5 +43,7 @@
 	<input type="text" name="valor" placeholder="Valor R$" 
 	value="<?php echo (isset($produtoEdit['valor'])? $produtoEdit['valor'] : '' );?>">
 	<button><?php echo (isset($editando) ? 'Atualizar' : 'Adicionar');?></button>
-	<button>Cancelar</button>
+	<?php if(isset($editando)):?>
+		<a href="/home">Cancelar</a>
+	<?php endif;?>
 </form>

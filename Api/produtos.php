@@ -44,7 +44,7 @@ function buscaProdutoId($id){
 	return $stmt->fetch(\PDO::FETCH_ASSOC);
 
 }
-function salvarProduto($dados){
+function updateProduto($dados){
 	$conexao = getConexao();
 	$update = "Update produtos set titulo=:titulo, descricao=:descricao, valor=:valor where id=:id";
 	$stmt = $conexao->prepare($update);

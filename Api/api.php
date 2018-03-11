@@ -41,7 +41,7 @@ function getPagina(){
 				$editando = true;
 				include("Paginas/home.php");	
 				break;
-			case "/produto/deletar":			
+			case "/deletar":			
 				
 				$ret = deletarProduto($_GET['id']);
 				header('location:../');					
@@ -57,7 +57,7 @@ function getPagina(){
 
 	if($metodo == "POST"){
 		switch($url){
-			case "/produto/adicionar":
+			case "/adicionar":
 
 				$msg = validaProdutos($_POST);
 				if($msg){
@@ -76,7 +76,7 @@ function getPagina(){
 
 				header('location:../');
 				break;
-			case "/produto/salvar":
+			case "/salvar":
 				$msg = validaProdutos($_POST);
 				if($msg){
 					$produtos = getProdutos();
@@ -84,7 +84,7 @@ function getPagina(){
 					include("Paginas/home.php");
 					break;
 				}
-				if(!salvarProduto($_POST)){
+				if(!updateProduto($_POST)){
 					$msg = "Erro ao atualizar o registro!";
 					$produtos = getProdutos();
 					include("Paginas/home.php");
